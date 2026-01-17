@@ -1,1 +1,271 @@
-https://suspensionengineering.com.au
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suspension Engineering – Pressure Balance Tools | Mountain Race Shop™</title>
+  <meta name="description" content="Engineering-backed suspension pressure balance tools. Convert dyno force into pressure, quantify adjuster authority, compare setups, and export results." />
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --card:#11151b;
+      --muted:#9aa4b2;
+      --text:#e9eef5;
+      --line:#1d2430;
+      --accent:#55d6a5;
+      --accent2:#4bb7ff;
+      --warn:#ffd166;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(900px 500px at 20% -10%, rgba(85,214,165,.20), transparent 60%),
+                  radial-gradient(900px 500px at 80% -10%, rgba(75,183,255,.18), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:10px 0 22px;border-bottom:1px solid var(--line); margin-bottom:22px;
+    }
+    .brand{
+      display:flex;flex-direction:column;gap:4px;
+    }
+    .brand h1{margin:0;font-size:20px;letter-spacing:.2px}
+    .brand small{color:var(--muted)}
+    .nav{
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end
+    }
+    .chip{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:8px 12px;border-radius:999px;
+      text-decoration:none;
+      color:var(--text);
+      font-size:14px;
+    }
+    .chip:hover{border-color:rgba(85,214,165,.55)}
+    .hero{
+      display:grid;grid-template-columns: 1.25fr .75fr;gap:18px;
+      margin:18px 0 18px;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr}
+      .nav{justify-content:flex-start}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+    .hero h2{margin:0 0 10px;font-size:34px;line-height:1.12}
+    .hero p{margin:0 0 14px;color:var(--muted);font-size:16px}
+    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:11px 14px;border-radius:12px;
+      text-decoration:none;font-weight:700;font-size:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .btnPrimary{
+      background: linear-gradient(90deg, rgba(85,214,165,.95), rgba(75,183,255,.85));
+      color:#041014;
+      border:none;
+    }
+    .btnPrimary:hover{filter:brightness(1.03)}
+    .btn:hover{border-color:rgba(75,183,255,.55)}
+    .mini{
+      color:var(--muted);font-size:13px;margin-top:12px
+    }
+    .sideTitle{margin:0 0 10px;font-size:16px}
+    ul{margin:10px 0 0 18px;color:var(--muted)}
+    li{margin:7px 0}
+    .grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px
+    }
+    @media (max-width: 860px){.grid{grid-template-columns:1fr}}
+    .sectionTitle{margin:0 0 8px;font-size:18px}
+    .pill{
+      display:inline-block;
+      padding:4px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size:12px;color:var(--muted);
+      margin-left:8px;
+    }
+    .note{
+      margin-top:12px;
+      padding:10px 12px;
+      border:1px solid rgba(255,209,102,.25);
+      background: rgba(255,209,102,.06);
+      color: #ffe9b3;
+      border-radius:12px;
+      font-size:13px;
+    }
+    .footer{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center
+    }
+    .footer a{color:var(--muted);text-decoration:none}
+    .footer a:hover{color:var(--text)}
+    .kpi{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px
+    }
+    .kpi .box{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:14px;padding:12px
+    }
+    .kpi b{display:block;font-size:16px}
+    .kpi span{color:var(--muted);font-size:12px}
+    .hr{height:1px;background:var(--line);margin:14px 0}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <h1>Suspension Engineering <span class="pill">Mountain Race Shop™ Tools</span></h1>
+        <small>Engineering-backed suspension tuning — proven on track, validated by data.</small>
+      </div>
+      <div class="nav">
+        <a class="chip" href="/pressure/">Pressure Balance App</a>
+        <a class="chip" href="/user-guide.html">User Guide</a>
+        <a class="chip" href="/terms.html">Terms</a>
+        <a class="chip" href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h2>Stop guessing.<br/>Measure pressure, adjuster authority & damping targets from real dyno force.</h2>
+        <p>
+          The Pressure Balance & Adjuster Authority Tool turns dyno force into meaningful suspension pressure values,
+          shows what your clickers are really doing, and helps you build confident setups faster — with fewer track-side
+          “hope-and-pray” changes.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="/pressure/">Launch Pressure Balance App</a>
+          <a class="btn" href="/user-guide.html">Read the User Guide</a>
+          <a class="btn" href="/terms.html">Terms & Conditions</a>
+          <a class="btn" href="/privacy.html">Privacy Policy</a>
+        </div>
+
+        <div class="mini">
+          Built for KYB, Showa, WP, Öhlins, K-Tech, Sachs and more. Workshop-ready outputs for customers and racers.
+        </div>
+
+        <div class="kpi">
+          <div class="box">
+            <b>Force → Pressure</b>
+            <span>Use real areas (rod / piston / effective) to translate dyno force into pressure.</span>
+          </div>
+          <div class="box">
+            <b>Adjuster Authority</b>
+            <span>Quantify what % of total force is coming from adjuster-controlled flow.</span>
+          </div>
+          <div class="box">
+            <b>Targets & Bands</b>
+            <span>See where your setup lands vs your chosen target band across velocities.</span>
+          </div>
+          <div class="box">
+            <b>Compare & Export</b>
+            <span>Compare compression vs rebound and export results for records & customers.</span>
+          </div>
+        </div>
+
+        <div class="note">
+          <b>Why this matters:</b> Suspension is a force device. <b>Force = Area × Pressure.</b> If you know force (dyno)
+          and you know the correct effective area, you can calculate pressure and finally compare setups apples-to-apples.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="sideTitle">What you’ll get out of it</h3>
+        <ul>
+          <li><b>Pressure values</b> at multiple velocities so you can see what the system is doing — not just the force curve.</li>
+          <li><b>Adjuster authority %</b> so you know whether clickers are meaningful or basically dead.</li>
+          <li><b>Better direction</b> when deciding: shim stack change vs bleed/needle change vs oil/geometry change.</li>
+          <li><b>Cleaner communication</b> with riders/customers: “here’s what changed and why.”</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h3 class="sideTitle">Quick links</h3>
+        <div class="ctaRow">
+          <a class="btn" href="/pressure/">Open the App</a>
+          <a class="btn" href="/user-guide.html">Guide + Data Required</a>
+        </div>
+
+        <div class="mini">
+          © 2025 Fenian Park Trading Pty Ltd (trading as Mountain Race Shop™). All rights reserved.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3 class="sectionTitle">User Guide (what data you need)</h3>
+        <p class="mini" style="margin:0 0 10px;">
+          The complete guide lives on the User Guide page, including what the readings mean and how to interpret them.
+        </p>
+        <ul>
+          <li><b>Dyno force data</b> at multiple velocities (e.g. 0.1, 1.0, 2.5 m/s) for:
+            <ul>
+              <li>Adjuster-only force (bleed/needle influence)</li>
+              <li>Total force (adjuster + shim stack)</li>
+            </ul>
+          </li>
+          <li><b>Geometry:</b> rod diameter (or adjuster-area proxy), piston/body diameter (main area), baseline pressure (if known)</li>
+          <li><b>Reference velocity</b> (used for scaling/normalising targets)</li>
+          <li><b>Optional:</b> notes on oil, temperature, test configuration, and stack/bleed configuration</li>
+        </ul>
+        <div class="ctaRow">
+          <a class="btn" href="/user-guide.html">Open full User Guide →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="sectionTitle">Legal & policies</h3>
+        <p class="mini" style="margin:0 0 10px;">
+          These tools are decision-support only and must be used by suitably experienced users.
+        </p>
+        <div class="ctaRow">
+          <a class="btn" href="/terms.html">Terms & Conditions</a>
+          <a class="btn" href="/privacy.html">Privacy Policy</a>
+        </div>
+        <div class="note">
+          <b>Reminder:</b> Testing, rider feedback, and safety checks are mandatory. Do not rely solely on tool outputs for
+          safety-critical decisions.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>
+        <b>Suspension Engineering</b> — Pressure Balance & Suspension Engineering Tools
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="/pressure/">App</a>
+        <a href="/user-guide.html">User Guide</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 
