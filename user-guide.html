@@ -1,42 +1,209 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>User Guide – Pressure Balance Tool</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Guide – Pressure Balance & Adjuster Authority</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;max-width:980px;margin:0 auto;padding:24px;line-height:1.55}
+    h1,h2,h3{line-height:1.2}
+    .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:14px 0}
+    code,pre{background:#f6f6f6;border-radius:8px;padding:2px 6px}
+    .warn{background:#fff6e6;border:1px solid #ffd7a3}
+    .ok{background:#eefaf3;border:1px solid #bfe8cf}
+    .muted{color:#555}
+    ul{margin-top:8px}
+    .small{font-size:13px;color:#666}
+  </style>
 </head>
 <body>
-  <h1>Pressure Balance & Adjuster Authority Tool</h1>
-  <h2>User Guide</h2>
 
-  <h3>Purpose</h3>
-  <p>This tool converts dyno force into pressure, shows how much authority your adjusters have, and helps define damping targets.</p>
+<h1>Pressure Balance & Adjuster Authority Tool</h1>
+<p class="muted">
+This guide explains exactly what to enter, where to get the numbers, and how to interpret the outputs.
+</p>
 
-  <h3>Data Required</h3>
+<div class="card warn">
+  <b>Safety & responsibility:</b> This tool is decision-support only. Always confirm with testing, rider feedback, and safety checks.
+</div>
+
+<h2>1) What the Tool Does (in plain English)</h2>
+<div class="card">
+  <p><b>Core relationship:</b> <b>Force = Area × Pressure</b></p>
+  <p>
+    Your dyno gives you <b>force</b> at given shaft speeds. If you know the correct <b>effective area</b> at the point you care about,
+    you can calculate the corresponding <b>pressure</b>.
+  </p>
+  <p>
+    The tool also calculates <b>Adjuster Authority</b> — what percentage of your total damping force is actually controlled by the adjuster circuit.
+  </p>
+</div>
+
+<h2>2) Data You Must Have Before You Start</h2>
+
+<div class="card">
+  <h3>A. Dyno force values (minimum set)</h3>
   <ul>
-    <li>Dyno force at multiple velocities (e.g. 0.1, 1.0, 2.5 m/s)</li>
-    <li>Adjuster-only force values</li>
-    <li>Total force values</li>
-    <li>Rod diameter or adjuster-area proxy</li>
-    <li>Piston or body diameter</li>
-    <li>Baseline pressure if known</li>
-    <li>Reference velocity</li>
+    <li><b>Three velocities</b> (shaft speeds), in m/s. Typical examples: 0.10, 1.00, 2.50 m/s.</li>
+    <li><b>Total force</b> at each velocity (N). This is the complete measured damping force for that configuration.</li>
+    <li><b>Adjuster-only force</b> at each velocity (N). This is measured with the main stack influence minimised, or by the method you use to isolate the adjuster circuit.</li>
+  </ul>
+  <p class="small">
+    If your dyno exports in mm/s or in lbf, convert first:
+    <br/>• mm/s → m/s: divide by 1000
+    <br/>• lbf → N: multiply by 4.44822
+  </p>
+
+  <h3>B. Geometry / area inputs</h3>
+  <ul>
+    <li><b>Main piston diameter</b> (mm) — used to estimate main working area.</li>
+    <li><b>Rod diameter</b> (mm) — used as an area proxy for balance/adjuster influence (and annulus where relevant).</li>
   </ul>
 
-  <h3>How It Works</h3>
-  <p>Force = Area × Pressure. By dividing measured force by the correct effective area, the tool calculates pressure at different points in the system.</p>
-
-  <h3>Adjuster Authority</h3>
-  <p>The tool compares adjuster-only force to total force to calculate how much of the damping is controlled by the adjuster.</p>
-
-  <h3>Interpreting Results</h3>
+  <h3>C. Setup context (recommended)</h3>
   <ul>
-    <li>High adjuster % = clickers have strong influence</li>
-    <li>Low adjuster % = shim stack dominates</li>
-    <li>Out-of-band values indicate need for mechanical changes</li>
+    <li>Oil temperature (approx)</li>
+    <li>Oil type/viscosity and bleed configuration</li>
+    <li>Dyno test direction (compression vs rebound) and configuration notes</li>
+  </ul>
+</div>
+
+<h2>3) Step-by-Step: How to Use the App</h2>
+
+<div class="card">
+  <h3>Step 1 — Choose the mode</h3>
+  <ul>
+    <li>Open the app and go to <b>Compression</b> tab first (then repeat for <b>Rebound</b>).</li>
+    <li>Set your <b>velocity reference</b> (v<sub>ref</sub>) — usually 1.0 m/s for a meaningful mid-speed reference.</li>
   </ul>
 
-  <h3>Important</h3>
-  <p>This tool is decision-support only. Always confirm with testing, rider feedback, and safety checks.</p>
+  <h3>Step 2 — Enter the three velocity points</h3>
+  <ul>
+    <li>Enter <b>V1</b>, <b>V2</b>, <b>V3</b> in m/s (example: 0.10, 1.00, 2.50).</li>
+    <li>These velocities must match the dyno points you measured.</li>
+  </ul>
 
-  <p>© 2025 Fenian Park Trading Pty Ltd (trading as Mountain Race Shop™)</p>
+  <h3>Step 3 — Enter force values at each velocity</h3>
+  <ul>
+    <li>Enter <b>Adj-only F1/F2/F3</b> (N) — adjuster circuit contribution.</li>
+    <li>Enter <b>Full F1/F2/F3</b> (N) — total damping force.</li>
+  </ul>
+  <p class="small">
+    Tip: Keep signs consistent (some dynos output compression/rebound as negative/positive). Use magnitudes if you’re comparing authority and targets.
+  </p>
+
+  <h3>Step 4 — Enter geometry (area proxies)</h3>
+  <ul>
+    <li><b>Piston/body diameter</b> (mm) — main area proxy.</li>
+    <li><b>Rod diameter</b> (mm) — rod/annulus and balance influence proxy.</li>
+  </ul>
+
+  <h3>Step 5 — Check the Adjuster Authority band</h3>
+  <p>
+    The app calculates authority at your v<sub>ref</sub>:
+  </p>
+  <ul>
+    <li><b>Adj % = (Adjuster-only force / Total force) × 100</b></li>
+  </ul>
+
+  <div class="card ok">
+    <b>Recommended authority range (typical):</b>
+    <ul>
+      <li><b>15–20%</b> is an ideal range for meaningful adjustment (good authority without excessive risk).</li>
+      <li><b>&lt; 15%</b> often feels like “the clicker doesn’t do much” because the adjuster circuit contributes too little.</li>
+      <li><b>&gt; 20%</b> increases risk of cavitation/hysteresis and may require higher pressures to stabilise.</li>
+      <li><b>6–8%</b> may indicate a highly pressure-balanced condition where adjuster change range becomes very small.</li>
+    </ul>
+  </div>
+
+  <h3>Step 6 — Review the graphs</h3>
+  <ul>
+    <li><b>Adjuster Damping vs Velocity</b> — shows adjuster-only force curve.</li>
+    <li><b>Total Damping vs Velocity</b> — shows full force curve.</li>
+    <li><b>Recommended band/targets</b> — highlights whether you are under/over the desired range.</li>
+  </ul>
+
+  <h3>Step 7 — Repeat for Rebound</h3>
+  <ul>
+    <li>Enter rebound dyno points in the <b>Rebound</b> tab.</li>
+    <li>Compare how authority differs between compression and rebound.</li>
+  </ul>
+
+  <h3>Step 8 — Use Compare & Export</h3>
+  <ul>
+    <li><b>Compare</b> overlays key metrics (authority and/or curves).</li>
+    <li><b>Export</b> downloads a CSV for job records, customer notes, or build tracking.</li>
+  </ul>
+</div>
+
+<h2>4) What the Readings Mean</h2>
+
+<div class="card">
+  <h3>Adjuster-only force (N)</h3>
+  <p>
+    The portion of measured damping attributable to the adjuster-controlled flow path (bleed/needle/HSC circuit depending on test method).
+  </p>
+
+  <h3>Total force (N)</h3>
+  <p>
+    The complete measured damping force at that shaft speed. Includes shim stacks, bleed, piston port effects, and any interaction with the adjuster circuit.
+  </p>
+
+  <h3>Adjuster Authority (%)</h3>
+  <p>
+    How “powerful” the adjuster is in the overall damping system.
+    If the authority is very low, click changes may be hard to feel because the main piston/stack dominates.
+  </p>
+
+  <h3>Pressure calculations (where used)</h3>
+  <p>
+    When the tool converts force to pressure, the quality depends on using the correct effective area.
+    Different points in the system can have different effective areas depending on piston/rod/annulus and which side is being considered.
+  </p>
+</div>
+
+<h2>5) Practical Troubleshooting</h2>
+
+<div class="card">
+  <h3>“My clicker doesn’t do anything”</h3>
+  <ul>
+    <li>Check authority at 1.0 m/s. If it’s &lt; 15%, the adjuster contribution may be too small.</li>
+    <li>Consider mechanical changes to increase adjuster circuit contribution (within safe bounds).</li>
+  </ul>
+
+  <h3>“Authority is too high”</h3>
+  <ul>
+    <li>If &gt; 20%, risk of cavitation/hysteresis rises.</li>
+    <li>You may need more stabilising pressure or circuit changes to reduce dependence on adjuster path.</li>
+  </ul>
+
+  <h3>“Dyno points don’t look smooth”</h3>
+  <ul>
+    <li>Confirm consistent oil temperature and test configuration.</li>
+    <li>Confirm units (mm/s vs m/s, lbf vs N).</li>
+    <li>Re-run with consistent bleed/click positions.</li>
+  </ul>
+</div>
+
+<h2>6) Data Recording Template (recommended)</h2>
+<div class="card">
+  <p><b>Record these each session:</b></p>
+  <ul>
+    <li>Bike / shock or fork model, piston diameter, rod diameter</li>
+    <li>Oil type and temperature</li>
+    <li>Clicker settings</li>
+    <li>V1/V2/V3 and adj-only + total forces</li>
+    <li>Any stack changes</li>
+    <li>Rider notes after testing</li>
+  </ul>
+</div>
+
+<p class="small">
+© 2025 Fenian Park Trading Pty Ltd (trading as Mountain Race Shop™). All rights reserved.
+</p>
+
 </body>
-</html> 
+</html>
+
+
+
